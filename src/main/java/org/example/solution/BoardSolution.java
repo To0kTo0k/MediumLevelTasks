@@ -1,6 +1,8 @@
-package org.example.entity;
+package org.example.solution;
 
 public class BoardSolution {
+    private static final char[] symbols = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '.'};
+
     /**
      * Матрица должна быть валидна в соответствии с правилами:
      * 1) Каждая строка должна содержать цифры от 1 до 9 без повторений
@@ -10,22 +12,17 @@ public class BoardSolution {
      * 5) Наличие букв в качестве значений недопустимо
      **/
     public static boolean isValidBoard(char[][] board) {
-        if (!isValidSymbols(board))
-            return false;
-        if (!isValidRows(board))
-            return false;
-        return isValidColumns(board);
+        return isValidSymbols(board) && isValidRows(board) && isValidColumns(board);
     }
 
     /**
      * Проверка строк на уникальные цифровые значения
      **/
-    public static boolean isValidRows(char[][] board) {
+    private static boolean isValidRows(char[][] board) {
         for (char[] chars : board) {
-            for (int j = 0; j < board.length; j++) {
-                for (int k = j + 1; k < board.length; k++) {
-                    if (chars[j] == chars[k] && chars[j] != '.')
-                        return false;
+            for (int j = 0; j < board.length - 1; j++) {
+                if (chars[j] == chars[j + 1] && chars[j] != '.') {
+                    return false;
                 }
             }
         }
@@ -35,13 +32,11 @@ public class BoardSolution {
     /**
      * Проверка столбцов на уникальные значения
      **/
-    public static boolean isValidColumns(char[][] board) {
-        for (int i=0; i< board.length; i++) {
-            for (int j=0; j< board.length; j++) {
-                for (int k=j+1; k< board.length; k++) {
-                    if (board[j][i] == board[k][i] && board[j][i] != '.') {
-                        return false;
-                    }
+    private static boolean isValidColumns(char[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length - 1; j++) {
+                if (board[j][i] == board[j + 1][i] && board[j][i] != '.') {
+                    return false;
                 }
             }
         }
@@ -51,19 +46,18 @@ public class BoardSolution {
     /**
      * Проверка на валидность символов
      **/
-    public static boolean isValidSymbols(char[][] board) {
-        char[] symbols = {'1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '.'};
+    private static boolean isValidSymbols(char[][] board) {
         for (char[] chars : board) {
             for (int j = 0; j < board.length; j++) {
                 boolean flag = false;
                 for (char symbol : symbols) {
                     if (symbol == chars[j]) {
                         flag = true;
-                        break;
                     }
                 }
-                if (!flag)
+                if (!flag) {
                     return false;
+                }
             }
         }
         return true;
