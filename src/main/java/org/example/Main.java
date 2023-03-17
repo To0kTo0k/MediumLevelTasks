@@ -3,7 +3,10 @@ package org.example;
 import org.example.solution.BoardSolution;
 
 public class Main {
-
+    public static void main(String[] args) {
+        BoardSolution boardSolution = new BoardSolution();
+        boardSolution.isValidBoard(getMatrix());
+    }
     public static char[][] getMatrix() {
         return new char[][]
                 {{'5', '3', '.', '.', '7', '.', '.', '.', '.'}
@@ -15,9 +18,5 @@ public class Main {
                         , {'.', '6', '.', '.', '.', '.', '2', '8', '.'}
                         , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
                         , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
-    }
-
-    public static void main(String[] args) {
-        BoardSolution.isValidBoard(getMatrix());
     }
 }
