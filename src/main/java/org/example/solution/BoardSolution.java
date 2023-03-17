@@ -4,6 +4,7 @@ import java.util.*;
 
 public class BoardSolution {
     private static final Set<Character> SET_SYMBOLS = Set.of('1', '2', '3', '4', '5', '6', '7', '8', '9', '.');
+    private static final int BOARDSIZE = 9;
 
     /**
      * Матрица должна быть валидна в соответствии с правилами:
@@ -14,7 +15,7 @@ public class BoardSolution {
      * 5) Наличие букв в качестве значений недопустимо
      **/
     public void isValidBoard(char[][] board) {
-        if (isValidRowsAndColumns(board) && isValidSymbols(board)) {
+        if (isValidRowsAndColumns(board) && isValidSymbols(board) && isValidBlocks(board) && isValidSize(board)) {
             System.out.println("Matrix is valid");
 
         } else {
@@ -41,6 +42,11 @@ public class BoardSolution {
         return true;
     }
 
+    /**
+     * Проверка на наличие элемента матрицы в наборе
+     *
+     * @return - false, если элемент присутствует в наборе, иначе true
+     **/
     private boolean addUniqueToSet(int i, int j, char[][] board, Set<Character> uniqueSet) {
         if (!uniqueSet.contains(board[i][j])) {
             uniqueSet.add(board[i][j]);
@@ -50,9 +56,11 @@ public class BoardSolution {
     }
 
     /**
-     * Проверка на валидность символов
+     * Проверка на валидность элементов матрицы
+     *
+     * @return - false, если присутствует невалидный элемент, иначе true
      **/
-    private static boolean isValidSymbols(char[][] board) {
+    private boolean isValidSymbols(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
                 if (!SET_SYMBOLS.contains(board[i][j])) {
@@ -61,5 +69,47 @@ public class BoardSolution {
             }
         }
         return true;
+    }
+
+    /**
+     * Проверка блоков 3 на 3 на валидность
+     *
+     * @return - false, если есть хоть один невалидный блок, иначе true
+     **/
+    private boolean isValidBlocks(char[][] board) {
+        for (int i = 0; i < board.length; i += 3) {
+            for (int j = 0; j < board.length; j += 3) {
+                if (!isValidBlock(board, i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Проверка блока 3 на 3 на валидность
+     *
+     * @return - false, если в блоке есть повторяющиеся элементы (кроме "."), иначе true
+     **/
+    private boolean isValidBlock(char[][] board, int i, int j) {
+        Set<Character> uniqueBlock = new HashSet<>();
+        for (int k = i; k < i + 3; k++) {
+            for (int l = j; l < j + 3; l++) {
+                if (addUniqueToSet(k, l, board, uniqueBlock)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Проверка размера матрицы
+     *
+     * @return - true, если размер матрицы корректный, иначе false
+     **/
+    private boolean isValidSize(char[][] board) {
+        return board.length == BOARDSIZE;
     }
 }
