@@ -24,35 +24,12 @@ public class BoardSolution {
     }
 
     /**
-     * Проверка строк и столбцов на уникальные цифровые значения
-     **/
-    private boolean isValidRowsAndColumns(char[][] board) {
-        for (int i = 0; i < board.length; i++) {
-            Set<Character> uniqueRow = new HashSet<>();
-            Set<Character> uniqueColumn = new HashSet<>();
-            for (int j = 0; j < board.length; j++) {
-                if (addUniqueToSet(i, j, board, uniqueRow)) {
-                    return false;
-                }
-                if (addUniqueToSet(j, i, board, uniqueColumn)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Проверка на наличие элемента матрицы в наборе
+     * Проверка размера матрицы
      *
-     * @return - false, если элемент присутствует в наборе, иначе true
+     * @return - true, если размер матрицы корректный, иначе false
      **/
-    private boolean addUniqueToSet(int i, int j, char[][] board, Set<Character> uniqueSet) {
-        if (!uniqueSet.contains(board[i][j])) {
-            uniqueSet.add(board[i][j]);
-            return false;
-        }
-        return board[i][j] != '.';
+    private boolean isValidSize(char[][] board) {
+        return board.length == BOARDSIZE;
     }
 
     /**
@@ -64,6 +41,25 @@ public class BoardSolution {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
                 if (!SET_SYMBOLS.contains(board[i][j])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Проверка строк и столбцов на уникальные цифровые значения
+     **/
+    private boolean isValidRowsAndColumns(char[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            Set<Character> uniqueRow = new HashSet<>();
+            Set<Character> uniqueColumn = new HashSet<>();
+            for (int j = 0; j < board.length; j++) {
+                if (addUniqueToSet(i, j, board, uniqueRow)) {
+                    return false;
+                }
+                if (addUniqueToSet(j, i, board, uniqueColumn)) {
                     return false;
                 }
             }
@@ -105,11 +101,15 @@ public class BoardSolution {
     }
 
     /**
-     * Проверка размера матрицы
+     * Проверка на наличие элемента матрицы в наборе
      *
-     * @return - true, если размер матрицы корректный, иначе false
+     * @return - false, если элемент присутствует в наборе, иначе true
      **/
-    private boolean isValidSize(char[][] board) {
-        return board.length == BOARDSIZE;
+    private boolean addUniqueToSet(int i, int j, char[][] board, Set<Character> uniqueSet) {
+        if (!uniqueSet.contains(board[i][j])) {
+            uniqueSet.add(board[i][j]);
+            return false;
+        }
+        return board[i][j] != '.';
     }
 }
