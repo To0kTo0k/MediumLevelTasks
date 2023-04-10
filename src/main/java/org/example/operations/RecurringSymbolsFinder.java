@@ -5,20 +5,18 @@ import java.util.Map;
 
 public class RecurringSymbolsFinder {
     public Map<Character, Integer> findRecurringSymbols(String symbolLine) {
-        Map<Character, Integer> passedSymbols = new HashMap<>();
-        try {
-            for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
-                if (passedSymbols.containsKey(symbolLine.charAt(numberInLine))) {
-                    int symbolRepetitionNumber = passedSymbols.get(symbolLine.charAt(numberInLine));
-                    symbolRepetitionNumber++;
-                    passedSymbols.put(symbolLine.charAt(numberInLine), symbolRepetitionNumber);
-                } else {
-                    passedSymbols.put(symbolLine.charAt(numberInLine), 1);
-                }
-            }
+        if (symbolLine.isEmpty()) {
+            throw new NullPointerException();
         }
-        catch (NullPointerException e) {
-            throw new RuntimeException("Input argument is null", e.getCause());
+        Map<Character, Integer> passedSymbols = new HashMap<>();
+        for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
+            if (passedSymbols.containsKey(symbolLine.charAt(numberInLine))) {
+                int symbolRepetitionNumber = passedSymbols.get(symbolLine.charAt(numberInLine));
+                symbolRepetitionNumber++;
+                passedSymbols.put(symbolLine.charAt(numberInLine), symbolRepetitionNumber);
+            } else {
+                passedSymbols.put(symbolLine.charAt(numberInLine), 1);
+            }
         }
         return passedSymbols;
     }

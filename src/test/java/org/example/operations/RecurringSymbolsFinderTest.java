@@ -1,21 +1,16 @@
 package org.example.operations;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RecurringSymbolsFinderTest {
-
-    @Test
-    void findNoSymbolsTest() {
-        RecurringSymbolsFinder finder = new RecurringSymbolsFinder();
-        Map<Character, Integer> recurringSymbols = finder.findRecurringSymbols("");
-        Map<Character, Integer> expectedSymbols = new HashMap<>();
-        assertEquals(expectedSymbols, recurringSymbols);
-    }
 
     @Test
     void findRecurringSymbolsTest() {
@@ -32,16 +27,19 @@ class RecurringSymbolsFinderTest {
     void findDifferentCaseSymbolsTest() {
         RecurringSymbolsFinder finder = new RecurringSymbolsFinder();
         Map<Character, Integer> recurringSymbols = finder.findRecurringSymbols("Aa");
-        int expectedSymbolsNumber = 2;
+        int expectedSymbolsNumber = 1;
         int realSmallSymbolsNumber = recurringSymbols.get('a');
         int realBigSymbolsNumber = recurringSymbols.get('A');
         assertEquals(expectedSymbolsNumber, realSmallSymbolsNumber);
         assertEquals(expectedSymbolsNumber, realBigSymbolsNumber);
     }
 
-    @Test
-    void findSymbolsFromNullTest() {
+    @ParameterizedTest
+    @NullAndEmptySource
+    void findSymbolsFromNullTest(String argument) {
         RecurringSymbolsFinder finder = new RecurringSymbolsFinder();
-        Map<Character, Integer> recurringSymbols = finder.findRecurringSymbols(null);
+        assertThrows(NullPointerException.class, () -> {
+            finder.findRecurringSymbols(argument);
+        }, "NullPointerException was expected");
     }
 }
