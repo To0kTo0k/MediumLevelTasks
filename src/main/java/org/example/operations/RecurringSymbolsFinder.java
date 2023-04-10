@@ -1,22 +1,26 @@
 package org.example.operations;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RecurringSymbolsFinder {
-    public void outputRecurringSymbols(String symbolLine) {
-        Set<Character> passedSymbols = new HashSet<>();
+    public Map<Character, Integer> findRecurringSymbols(String symbolLine) {
+        Map<Character, Integer> passedSymbols = new HashMap<>();
         for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
-            if (isRecurringSymbol(symbolLine, symbolLine.charAt(numberInLine))) {
-                passedSymbols.add(symbolLine.charAt(numberInLine));
+            if (passedSymbols.containsKey(symbolLine.charAt(numberInLine))) {
+                int symbolRepetitionNumber = passedSymbols.get(symbolLine.charAt(numberInLine));
+                symbolRepetitionNumber++;
+                passedSymbols.put(symbolLine.charAt(numberInLine), symbolRepetitionNumber);
+            } else {
+                passedSymbols.put(symbolLine.charAt(numberInLine), 1);
             }
         }
-        for (Character passedSymbol : passedSymbols) {
-            System.out.println(passedSymbol);
-        }
+        return passedSymbols;
     }
 
-    private boolean isRecurringSymbol(String symbolLine, char checkedSymbol) {
-        return symbolLine.lastIndexOf(checkedSymbol) != symbolLine.indexOf(checkedSymbol);
+    public void outputRecurringSymbols(Map<Character, Integer> recurringSymbols) {
+        for (Map.Entry<Character, Integer> entry : recurringSymbols.entrySet()) {
+            System.out.println("\"" + entry.getKey() + "\" : " + entry.getValue());
+        }
     }
 }
