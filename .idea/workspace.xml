@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0da814e0-da01-4fe4-bea0-0d4db34840e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/operations/RecurringSymbolsFinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/operations/RecurringSymbolsFinderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
       <workItem from="1680862646620" duration="5187000" />
       <workItem from="1680869776758" duration="1140000" />
       <workItem from="1680871050560" duration="42000" />
-      <workItem from="1681111783680" duration="3447000" />
+      <workItem from="1681111783680" duration="4961000" />
     </task>
     <servers />
   </component>
