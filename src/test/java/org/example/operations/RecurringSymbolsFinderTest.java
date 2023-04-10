@@ -38,4 +38,10 @@ class RecurringSymbolsFinderTest {
         assertEquals(expectedSymbolsNumber, realSmallSymbolsNumber);
         assertEquals(expectedSymbolsNumber, realBigSymbolsNumber);
     }
+
+    @Test
+    void findSymbolsFromNullTest() {
+        RecurringSymbolsFinder finder = new RecurringSymbolsFinder();
+        Map<Character, Integer> recurringSymbols = finder.findRecurringSymbols(null);
+    }
 }
