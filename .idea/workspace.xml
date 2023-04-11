@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0da814e0-da01-4fe4-bea0-0d4db34840e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/operations/RecurringSymbolsFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/operations/RecurringSymbolsFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/operations/RecurringSymbolsFinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/operations/RecurringSymbolsFinderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +65,22 @@
       <recent name="org.example.operations" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.RecurringSymbolsFinderTest">
+    <configuration name="RecurringSymbolsFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="recurringSymbolsFinder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.operations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.operations" />
+      <option name="MAIN_CLASS_NAME" value="org.example.operations.RecurringSymbolsFinderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecurringSymbolsFinderTest.findSymbolsFromNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="recurringSymbolsFinder" />
       <extension name="coverage">
@@ -85,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RecurringSymbolsFinderTest" />
         <item itemvalue="JUnit.RecurringSymbolsFinderTest.findSymbolsFromNullTest" />
       </list>
     </recent_temporary>
@@ -100,7 +115,7 @@
       <workItem from="1680862646620" duration="5187000" />
       <workItem from="1680869776758" duration="1140000" />
       <workItem from="1680871050560" duration="42000" />
-      <workItem from="1681111783680" duration="12228000" />
+      <workItem from="1681111783680" duration="13471000" />
     </task>
     <servers />
   </component>
