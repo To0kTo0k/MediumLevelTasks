@@ -34,12 +34,11 @@ class RecurringSymbolsFinderTest {
         assertEquals(expectedSymbolsNumber, realBigSymbolsNumber);
     }
 
-    @ParameterizedTest
-    @NullAndEmptySource
-    void findSymbolsFromNullTest(String argument) {
+    @Test
+    void findSymbolsFromNullTest() {
         RecurringSymbolsFinder finder = new RecurringSymbolsFinder();
-        assertThrows(NullPointerException.class, () -> {
-            finder.findRecurringSymbols(argument);
-        }, "NullPointerException was expected");
+        Map<Character, Integer> recurringSymbols = finder.findRecurringSymbols(null);
+        Map<Character, Integer> expectedSymbols = new HashMap<>();
+        assertEquals(expectedSymbols, recurringSymbols);
     }
 }

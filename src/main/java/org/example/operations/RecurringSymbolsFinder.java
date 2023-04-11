@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class RecurringSymbolsFinder {
     public Map<Character, Integer> findRecurringSymbols(String symbolLine) {
-        if (symbolLine.isEmpty()) {
-            throw new NullPointerException();
-        }
         Map<Character, Integer> passedSymbols = new HashMap<>();
+        if (symbolLine == null) {
+            return passedSymbols;
+        }
         for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
             if (passedSymbols.containsKey(symbolLine.charAt(numberInLine))) {
                 int symbolRepetitionNumber = passedSymbols.get(symbolLine.charAt(numberInLine));
