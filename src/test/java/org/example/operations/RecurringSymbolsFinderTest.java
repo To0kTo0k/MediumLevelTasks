@@ -1,14 +1,11 @@
 package org.example.operations;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RecurringSymbolsFinderTest {
 
@@ -37,8 +34,10 @@ class RecurringSymbolsFinderTest {
     @Test
     void findSymbolsFromNullTest() {
         RecurringSymbolsFinder finder = new RecurringSymbolsFinder();
-        Map<Character, Integer> recurringSymbols = finder.findRecurringSymbols(null);
-        Map<Character, Integer> expectedSymbols = new HashMap<>();
-        assertEquals(expectedSymbols, recurringSymbols);
+        Map<Character, Integer> nullMap = finder.findRecurringSymbols(null);
+        Map<Character, Integer> emptyMap = finder.findRecurringSymbols("");
+        Map<Character, Integer> expectedMap = new HashMap<>();
+        assertEquals(expectedMap, nullMap);
+        assertEquals(expectedMap, emptyMap);
     }
 }

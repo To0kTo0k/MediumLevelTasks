@@ -6,7 +6,7 @@ import java.util.Map;
 public class RecurringSymbolsFinder {
     public Map<Character, Integer> findRecurringSymbols(String symbolLine) {
         Map<Character, Integer> passedSymbols = new HashMap<>();
-        if (symbolLine == null) {
+        if (symbolLine == null || symbolLine.isEmpty()) {
             return passedSymbols;
         }
         for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
