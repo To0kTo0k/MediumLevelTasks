@@ -10,13 +10,7 @@ public class RecurringSymbolsFinder {
             return passedSymbols;
         }
         for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
-            if (passedSymbols.containsKey(symbolLine.charAt(numberInLine))) {
-                int symbolRepetitionNumber = passedSymbols.get(symbolLine.charAt(numberInLine));
-                symbolRepetitionNumber++;
-                passedSymbols.put(symbolLine.charAt(numberInLine), symbolRepetitionNumber);
-            } else {
-                passedSymbols.put(symbolLine.charAt(numberInLine), 1);
-            }
+            passedSymbols.merge(symbolLine.charAt(numberInLine), 1, Integer::sum);
         }
         return passedSymbols;
     }
