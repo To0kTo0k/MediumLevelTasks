@@ -1,7 +1,10 @@
 package org.example;
 
+import org.example.handler.FirstUnrecurringSymbolFinder;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        FirstUnrecurringSymbolFinder finder = new FirstUnrecurringSymbolFinder();
+        System.out.println("\"" + finder.findFirstUnrecurringSymbol("ab abc") + "\"");
     }
 }
