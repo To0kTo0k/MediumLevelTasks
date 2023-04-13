@@ -2,22 +2,19 @@ package org.example.operations;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class RecurringSymbolsFinder {
     public Map<Character, Integer> findRecurringSymbols(String symbolLine) {
-        Map<Character, Integer> passedSymbols = new HashMap<>();
         if (symbolLine == null || symbolLine.isEmpty()) {
-            return passedSymbols;
+            return new HashMap<>();
         }
-        for (int numberInLine = 0; numberInLine < symbolLine.length(); numberInLine++) {
-            passedSymbols.merge(symbolLine.charAt(numberInLine), 1, Integer::sum);
-        }
-        return passedSymbols;
+        return symbolLine.chars()
+                .mapToObj(symbol -> (char) symbol)
+                .collect(Collectors.groupingBy(symbol -> symbol, Collectors.summingInt(number -> 1)));
     }
 
     public void outputRecurringSymbols(Map<Character, Integer> recurringSymbols) {
-        for (Map.Entry<Character, Integer> entry : recurringSymbols.entrySet()) {
-            System.out.println("\"" + entry.getKey() + "\" : " + entry.getValue());
-        }
+        recurringSymbols.forEach((key, value) -> System.out.println("\"" + key + "\" : " + value));
     }
 }
