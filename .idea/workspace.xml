@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1d026af-b36f-403d-ac51-f9e56dd4a40b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/handler/FirstUnrecurringSymbolFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/handler/FirstUnrecurringSymbolsFinderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/handler/FirstUnrecurringSymbolFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/handler/FirstUnrecurringSymbolFinder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681392076386</updated>
-      <workItem from="1681392077550" duration="13883000" />
+      <workItem from="1681392077550" duration="14894000" />
     </task>
     <servers />
   </component>
