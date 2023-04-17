@@ -3,7 +3,6 @@ package org.example.handler;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class FirstUnrecurringSymbolsFinderTest {
 
@@ -11,17 +10,17 @@ class FirstUnrecurringSymbolsFinderTest {
 
     @Test
     void firstUnrecurringSymbolFromNullTest() {
-        assertNull(finder.findFirstUnrecurringSymbol(null));
+        assertEquals(Character.MIN_VALUE, finder.findFirstUnrecurringSymbol(null));
     }
 
     @Test
     void firstUnrecurringSymbolFromEmptyTest() {
-        assertNull(finder.findFirstUnrecurringSymbol(""));
+        assertEquals(Character.MIN_VALUE, finder.findFirstUnrecurringSymbol(""));
     }
 
     @Test
     void firstUnrecurringSymbolFromOnlyRecurringSymbolsStringTest() {
-        assertNull(finder.findFirstUnrecurringSymbol("aa"));
+        assertEquals(Character.MIN_VALUE, finder.findFirstUnrecurringSymbol("aa"));
     }
 
     @Test
