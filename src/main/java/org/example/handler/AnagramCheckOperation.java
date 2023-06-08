@@ -1,10 +1,8 @@
 package org.example.handler;
 
-// определить, что одна строка является анаграммой лругой
-// (состоит из тех же букв)
 public class AnagramCheckOperation {
     public boolean isAnagram(String first, String second) {
-        if (first == null || first.isEmpty() || second == null || second.isEmpty()) {
+        if (first == null || second == null) {
             return false;
         }
         for (char symbol : first.toCharArray()) {
