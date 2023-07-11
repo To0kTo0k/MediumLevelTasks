@@ -26,7 +26,7 @@ class AnagramCheckOperationTest {
 
     @Test
     void isAnagramWithEqualsLetters() {
-        assertTrue(anagramCheckOperation.isAnagram("abc", "cbaabc"));
+        assertFalse(anagramCheckOperation.isAnagram("abc", "abca"));
     }
 
     @Test
