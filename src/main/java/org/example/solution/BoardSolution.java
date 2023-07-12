@@ -28,7 +28,10 @@ public class BoardSolution {
      *
      * @return - true, если размер матрицы корректный, иначе false
      **/
-    private boolean isValidSize(char[][] board) {
+    protected boolean isValidSize(char[][] board) {
+        if (board == null) {
+            return false;
+        }
         return board.length == BOARDSIZE;
     }
 
@@ -37,7 +40,7 @@ public class BoardSolution {
      *
      * @return - false, если присутствует невалидный элемент, иначе true
      **/
-    private boolean isValidSymbols(char[][] board) {
+    protected boolean isValidSymbols(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
                 if (!SET_SYMBOLS.contains(board[i][j])) {
@@ -51,7 +54,7 @@ public class BoardSolution {
     /**
      * Проверка строк и столбцов на уникальные цифровые значения
      **/
-    private boolean isValidRowsAndColumns(char[][] board) {
+    protected boolean isValidRowsAndColumns(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             Set<Character> uniqueRow = new HashSet<>();
             Set<Character> uniqueColumn = new HashSet<>();
@@ -72,7 +75,7 @@ public class BoardSolution {
      *
      * @return - false, если есть хоть один невалидный блок, иначе true
      **/
-    private boolean isValidBlocks(char[][] board) {
+    protected boolean isValidBlocks(char[][] board) {
         for (int i = 0; i < board.length; i += 3) {
             for (int j = 0; j < board.length; j += 3) {
                 if (!isValidBlock(board, i, j)) {
@@ -88,7 +91,7 @@ public class BoardSolution {
      *
      * @return - false, если в блоке есть повторяющиеся элементы (кроме "."), иначе true
      **/
-    private boolean isValidBlock(char[][] board, int i, int j) {
+    protected boolean isValidBlock(char[][] board, int i, int j) {
         Set<Character> uniqueBlock = new HashSet<>();
         for (int k = i; k < i + 3; k++) {
             for (int l = j; l < j + 3; l++) {
@@ -105,7 +108,7 @@ public class BoardSolution {
      *
      * @return - false, если элемент присутствует в наборе, иначе true
      **/
-    private boolean addUniqueToSet(int i, int j, char[][] board, Set<Character> uniqueSet) {
+    protected boolean addUniqueToSet(int i, int j, char[][] board, Set<Character> uniqueSet) {
         if (!uniqueSet.contains(board[i][j])) {
             uniqueSet.add(board[i][j]);
             return false;
